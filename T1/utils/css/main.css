@@ -1,0 +1,14 @@
+*{
+    padding-top: 10px;
+    margin-left: 10px;
+}
+h1{
+    margin-left: 40%;
+}
+button{
+    height: 5%;
+    width: 20%;
+    background-color: aquamarine;
+    border: none;
+
+}
