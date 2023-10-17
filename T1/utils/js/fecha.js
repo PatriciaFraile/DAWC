@@ -9,7 +9,7 @@ button4.addEventListener("click",function () {
     let minutos =  segundos*60;
     let horas = minutos*60;
     let days = horas*24;
-    let months = days * 30.416666666666668;
+    let months = days * 30.417;
     let years = months * 12;
     let anos = Math.floor(tiempoPasado / years);
     tiempoPasado = tiempoPasado - (anos * years);
@@ -26,7 +26,7 @@ button4.addEventListener("click",function () {
 
     tiempoPasado = tiempoPasado - (mins * minutos);
     let segs = Math.floor(tiempoPasado / segundos)
-    console.log(`Ha pasado ${tiempoPasado} dias desde tu cumpleaños`)
+    console.log(`Ha pasado ${hours} dias desde tu cumpleaños`)
     
 
    
