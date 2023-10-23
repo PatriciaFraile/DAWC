@@ -8,23 +8,28 @@ button7.addEventListener("click",function () {
             let resta = num1-num2;
             let mul = num1*num2;
             let div = num1/num2;
-            alert(`La suma es ${suma},
-            la resta es ${resta},
-            la multiplicacion es ${mul} y
-            la división es ${div}`)
-            if (suma=>0 && resta>=0 && mul>=0 && div>=0) {
-             let decision = prompt("¿Desea continuar?(S/N)");
-            if (decision=="N") {
-                 
-                break;
+            let array = [suma,resta,mul,div];
+
+            let res = prompt("¿Quieres realizar las operaciones?(S/N)");
+            if(res=="S"){
+                for (let index = 0; index < array.length; index++) {
+                    setTimeout(function (){
+                        console.log(array[index]);  
+                      },2000);
+                    
+                }
+                break
+
+            }else{
+                break
             }
-            } else {
-                alert("El programa ha finalizado");
-                break;
-            }
+
+          
+             
+            
         }else{
             alert("El programa ha finalizado");
            break;
         }
-    }//falta mas cosas 
+    }
 });
