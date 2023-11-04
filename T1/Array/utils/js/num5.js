@@ -1,5 +1,5 @@
-let button4 = document.getElementById("for")
-button4.addEventListener("click",function () {
+let button5 = document.getElementById("five")
+button5.addEventListener("click",function () {
     let palo = ["C","D","R","P"];
     let baraja = []
     for (let index = 0; index < palo.length; index++) {
@@ -24,7 +24,14 @@ button4.addEventListener("click",function () {
         }
     }
     baraja = _.shuffle(baraja)
-    console.log(baraja)
+    setInterval(() => {
+        let num = baraja.pop()
+        let palos = num.substring(num.length-1)
+        let valor = num.substring(0,num.length-1)
+        console.log(`Carta ${num}`)
+        console.log(`Palo ${palos}`)
+        console.log(`Valor ${valor}`)
+    }, 2000);
   
     
 
