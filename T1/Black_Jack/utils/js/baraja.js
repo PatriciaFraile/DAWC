@@ -32,4 +32,3 @@ function mostrarBaraja() {
     }, 2000);
 }   
 crearBaraja();
-mostrarBaraja();

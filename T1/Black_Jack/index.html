@@ -20,19 +20,29 @@
     <title>Black Jack</title>
   </head>
   <body>
-    <button type="button" class="btn btn-primary" id="iniciar_partida">
-      Iniciar Juego
-    </button>
-    <button type="button" class="btn btn-primary" id="pedir_carta">
-      Pedir carta
-    </button>
-    <button type="button" class="btn btn-primary" id="pasar">Pasar</button>
-    <button type="button" class="btn btn-primary" id="plantearse">
-      Plantearse
-    </button>
-    <button type="button" class="btn btn-primary" id="reiniciar">
-      Reiniciar
-    </button>
+    <div class="buttons">
+      <button type="button" class="btn btn-primary" id="iniciar_partida">
+        Iniciar Juego
+      </button>
+      <button type="button" class="btn btn-primary" id="pedir_carta">
+        Pedir carta
+      </button>
+      <button type="button" class="btn btn-primary" id="pasar">Pasar</button>
+      <button type="button" class="btn btn-primary" id="plantearse">
+        Plantearse
+      </button>
+      <button type="button" class="btn btn-primary" id="reiniciar">
+        Reiniciar
+      </button>
+    </div>
+
+    <div class="container">
+      <p id="nombre_jugador">Nombre : <span></span></p>
+      <p id="puntos_jugador">Puntos : <span></span></p>
+      <p>Nombre : Banca</p>
+      <p id="puntos_banca">Puntos : <span></span></p>
+    </div>
+
     <script src="./utils/js/carta.js"></script>
     <script src="./utils/js/baraja.js"></script>
   </body>
