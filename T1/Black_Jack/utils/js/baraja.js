@@ -31,4 +31,3 @@ function mostrarBaraja() {
         carta.mostrarDatos()
     }, 2000);
 }   
-crearBaraja();

@@ -4,8 +4,37 @@
     margin-right: 10px;
 }
 body{
-    background-color: green;
+    background-color: rgb(0, 128, 49);
+}
+h1{
+
+    height: 30%;
+    display: flex;
+        align-items: center;
+    justify-content: center;
 }
 .buttons{
-    margin-left: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: end;
+}
+a {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+ img {
+    padding-top: 2%;
+    display: flex;
+    justify-content: flex-start;
+    display: inline-block;
+    width: 5%;
+}
+ .img2{
+    display: inline-block;
+    margin-left: 80%;
+    width: 5%;
 }
