@@ -1,4 +1,3 @@
-let nombre = prompt("Escribe tu nombre");
 crearBaraja();
 let boton_pedir = document.querySelector("#pedir_carta");
 let nombre_jugador = document.querySelector("p#nombre_jugador span");
@@ -9,19 +8,39 @@ let cartas_banca = document.querySelector("#cartas_banca");
 let reiniciar_partida = document.querySelector("#reiniciar");
 let plantarse = document.querySelector("#plantarse");
 
-nombre_jugador.textContent = nombre
+let nombre = prompt("Escribe tu nombre");
+
+if(nombre.textContent == null){
+  let nombre = prompt("Escribe tu nombre");
+  nombre_jugador.textContent = nombre
+  boton_pedir.disabled = false;
+
+}
 
 boton_pedir.addEventListener("click", (e)=>{
+    plantarse.disabled = false;
+    reiniciar_partida.disabled = false;
+    plantarse.disabled = false;
+
     let carta = baraja.pop();
     let nodoImagen = document.createElement("img");
     nodoImagen.src = `./utils/images/${carta.imagen}`;
     nodoImagen.style="width: 5%";
     cartas_jugador.appendChild(nodoImagen);
     puntos_jugador.textContent = Number(puntos_jugador.textContent) + carta.calcularValor();
+
+    if(puntos_jugador.textContent>21){
+      alert(`Ha ganado la Banca`)
+      boton_pedir.disabled = true;
+    plantarse.disabled = true;
+    }
 });
  
 reiniciar_partida.addEventListener("click", (e)=>{
     puntos_jugador.textContent = 0;
+    puntos_banca = 0;
+    cartas_jugador.innerHTML = "";
+    cartas_banca.innerHTML = "";
 
 });
 
