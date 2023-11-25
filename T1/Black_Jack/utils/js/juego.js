@@ -10,7 +10,7 @@ let plantarse = document.querySelector("#plantarse");
 
 let nombre = prompt("Escribe tu nombre");
 
-if(nombre.textContent == null){
+if(nombre.textContent = " "){
   let nombre = prompt("Escribe tu nombre");
   nombre_jugador.textContent = nombre
   boton_pedir.disabled = false;
@@ -38,9 +38,11 @@ boton_pedir.addEventListener("click", (e)=>{
  
 reiniciar_partida.addEventListener("click", (e)=>{
     puntos_jugador.textContent = 0;
-    puntos_banca = 0;
+    puntos_banca.textContent = 0;
     cartas_jugador.innerHTML = "";
     cartas_banca.innerHTML = "";
+    boton_pedir.disabled = false;
+
 
 });
 
@@ -61,19 +63,19 @@ function turnoBanca() {
         cartas_banca.appendChild(nodoImagen)
         puntos_banca.textContent = Number(puntos_banca.textContent) + carta.calcularValor();
         setTimeout(() => {
-            if (puntos_banca >= 17 && puntos_banca<=21) {
+            if (puntos_banca.textContent >= 17 && puntos_banca.textContent<=21) {
               clearInterval(intervaloBanca);
       
-              if (puntos_jugador > puntos_banca) {
-                alert(`${nombre_jugador} ganador`);
-              } else if (puntos_banca > puntos_jugador) {
+              if (puntos_jugador.textContent > puntos_banca.textContent) {
+                alert(nombre_jugador.textContent + " ganador ");
+              } else if (puntos_banca.textContent > puntos_jugador.textContent) {
                 alert("Banca ganadora");
               } else {
                 alert("Empate");
               }
-            }else if (puntos_banca>21){
+            }else if (puntos_banca.textContent>21){
               clearInterval(intervaloBanca);
-              alert(`${nombre_jugador} ganador`);
+              alert(nombre_jugador.textContent + " ganador ");
             }
           }, 500);
         }, 1500);
