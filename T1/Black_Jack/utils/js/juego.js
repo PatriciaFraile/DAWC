@@ -7,6 +7,9 @@ let puntos_banca = document.querySelector("p#puntos_banca span");
 let cartas_banca = document.querySelector("#cartas_banca");
 let reiniciar_partida = document.querySelector("#reiniciar");
 let plantarse = document.querySelector("#plantarse");
+let guardar_datos = document.querySelector("#guardar_datos");
+let borrar_datos = document.querySelector("#borrar_datos");
+let partida_ganada = document.querySelector("p#partidas span")
 
 let nombre = prompt("Escribe tu nombre");
 
@@ -49,7 +52,12 @@ reiniciar_partida.addEventListener("click", (e)=>{
 plantarse.addEventListener("click",()=>{
     turnoBanca();
 
-})
+});
+
+guardar_datos.addEventListener("click",()=>{
+
+});
+
 function turnoBanca() {
     let miFuncion = () =>{
         alert("Turno de la banca");
@@ -68,6 +76,7 @@ function turnoBanca() {
       
               if (puntos_jugador.textContent > puntos_banca.textContent) {
                 alert(nombre_jugador.textContent + " ganador ");
+                partida_ganada.textContent = Number(partida_ganada.textContent)+1;
               } else if (puntos_banca.textContent > puntos_jugador.textContent) {
                 alert("Banca ganadora");
               } else {
