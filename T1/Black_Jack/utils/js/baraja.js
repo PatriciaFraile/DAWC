@@ -5,9 +5,6 @@ function crearBaraja() {
         for (let j = 1; j < 14; j++) {
             let cartas = j;
             switch (cartas) {
-                case 1:
-                    cartas = "A";
-                    break;
                 case 11:
                     cartas = "J";
                     break;
