@@ -33,6 +33,7 @@ window.addEventListener('load',()=>{
     boton_pedir.disabled = false;
     console.log(nombre_jugador.textContent);
     partida_ganada.textContent = Number(0)
+    partida_banca.textContent = Number(0);
   }
   })
 
@@ -54,11 +55,18 @@ boton_pedir.addEventListener("click", (e)=>{
       partida_banca.textContent = Number(partida_banca.textContent)+1;
       boton_pedir.disabled = true;
       plantarse.disabled = true;
+      guardar_datos.disabled = false;
+
+
     }
     let ganador = Number(puntos_jugador.textContent)
     if (ganador === 21){
       alert(nombre_jugador.textContent + " ganador ");  
       partida_ganada.textContent = Number(partida_ganada.textContent)+1;
+      guardar_datos.disabled = false;
+      boton_pedir.disabled = true;
+      plantarse.disabled = true;
+
               
     }
 });
@@ -69,6 +77,8 @@ reiniciar_partida.addEventListener("click", (e)=>{
     cartas_jugador.innerHTML = "";
     cartas_banca.innerHTML = "";
     boton_pedir.disabled = false;
+    guardar_datos.disabled = true;
+
 
 
 });
