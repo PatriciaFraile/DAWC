@@ -8,7 +8,8 @@ router.get('/ejemplo', function(req, res, next) {
   res.send('respond with a resource hello');
 });
 router.post('/add', function (req,res,next) {
-  res.send('Añadiendo unn nuevo usuario');
+
+  res.send(req.body.title);
 });
 router.get('/list',function (req,res,next) {
   let connection = db.createConnection();

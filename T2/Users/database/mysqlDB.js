@@ -1,4 +1,4 @@
-const db = required("mysql");
+const db = require("mysql");
 var connection = {
     createConnection: ()=>{
         return db.createConnection(
