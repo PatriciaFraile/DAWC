@@ -1,8 +1,8 @@
-import React from 'react';
+import logo from './logo.svg';
+import Concesionario from "./components/Concesionario"
 import './App.css';
-import Concesionario from './components/Concesionario';
 
-function App(){
+function App() {
   return (
     <Concesionario></Concesionario>
   );
