@@ -1,2 +1,2 @@
 # DAWC
-Repositorio destinado a colgar ejercicios y prácticas de Desarrollo aplicaciones entorno al cliente
+Repositorio destinado a colgar ejercicios y prácticas de Desarrollo aplicaciones web  entorno al cliente
