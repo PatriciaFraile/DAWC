@@ -8,8 +8,15 @@ const Agregar =({listado})=>{
     const [accesorio, setAccesorio] = useState("")
     const [accesorios, setAccesorios] = useState([]);
 
+    let eventHandler= (e)=>{
+        setCoche((e1)=>{
+            return {...e1,[e.target.id]:e.target.value}
+        })
+    }
+
     function agregarCoche(){
-        let buscador = listado.find((e)=>{
+        console.log(listado.length);
+        let buscador = coches.find((e)=>{
             return e.matricula==coche.matricula;
         })
         if(buscador==null){
@@ -17,7 +24,7 @@ const Agregar =({listado})=>{
                 return{...e,accesorios:accesorios}
             })
             setCoches((e)=>{
-                return{...e,coche}
+                return[...e,coche]
             })
             Swal.fire({
                 position:"center",
@@ -34,13 +41,6 @@ const Agregar =({listado})=>{
                 timer:1500
             })
         }
-    }
-
-
-    let eventHandler= (e)=>{
-        setCoche((e1)=>{
-            return {...e1,[e.target.id]:e.target.value}
-        })
     }
 
     return(
@@ -62,6 +62,35 @@ const Agregar =({listado})=>{
                 <option>Techo</option>
                 <option>Paquete sport</option>
             </select>
+            <button type="button" class="btn btn-primary"
+            onClick={(e)=>{
+                let elemento = accesorios.find((item)=>{
+                    return item==accesorio;
+                });
+                if (elemento==null) {
+                    setAccesorios((item)=>{
+                        return[...item,accesorio]
+                    });
+                    Swal.fire({
+                        position:"center",
+                        icon:"success",
+                        title:"Accesorio agregado",
+                        timer:1500
+        
+                    })
+                }else{
+                    Swal.fire({
+                        position:"center",
+                        icon:"error",
+                        title:"Error al añadir accesorio",
+                        timer:1500
+                    })
+                }
+        }}>Agregar</button>
+        <p>El numero de accesorios es : {accesorios.length}</p>
+
+        <button type="button" class="btn btn-secondary" onClick={(e)=>{agregarCoche()}}>Agregsr Coche</button>
+
 
 
         </div>
