@@ -1,20 +1,68 @@
 import React, {useState} from "react";
 import Agregar from "./Agregar";
 import Listar from "./Listar"
-import Swal from "sweetalert2"
+import Buscador from "./Buscador";
+import Swal from "sweetalert2";
+
 
 
 const Concesionario = ()=>{
-    const [coche,setCoche] = useState({})
-    const [coches,setCoches] = useState([])
+    
+    const [precioBusqueda, setPrecioBusqueda] = useState(0);
+    const [coche, setCoche] = useState({});
+    const [coches, setCoches] = useState([]);
+    const [cochesFiltrados, setCochesFiltrados] = useState([]);
     const [accesorios, setAccesorios] = useState([]);
-
+    const [accesorio, setAccesorio] = useState("");
+  
+    let eventHandle = (e) => {
+      setCoche((e1) => {
+        return { ...e1, [e.target.id]: e.target.value };
+      });
+    };
+  
+    function agregarCoche() {
+      /* cuando no se puede agregar? -> cuando hay uno con la misma matricula */
+      let cocheBuscado = coches.find((item) => {
+        return item.matricula == coche.matricula;
+      });
+  
+      if (cocheBuscado == null) {
+        setCoche((e) => {
+          return { ...e, accesorios: accesorios };
+        });
+        setCoches((e) => {
+          return [...e, coche];
+        });
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Coche agregado corretamente",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      } else {
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Coche con matricula duplicada",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    }
+  
     return(
         <div className="container">
-            <div className="row">
+            <div className="row mt-4">
                 <div className="col">
-                    <Agregar listado={coches}/>
+                    <Agregar listado={coches} modificacion={setCoches}/>
                 </div>
+                <div className="col">
+                    <Buscador listado={coches}/>
+                </div>
+            </div>
+            <div className="row mt-4">
                 <div className="col">
                     <Listar listado={coches}/>
                 </div>
