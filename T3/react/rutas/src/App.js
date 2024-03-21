@@ -1,32 +1,39 @@
 import "./App.css";
-
+import { Routes, Route,Link} from "react-router-dom";
+import ComponenteUno from "./components/ComponenteUno";
+import ComponenteDos from "./components/ComponenteDos";
+import ComponenteHome from "./components/ComponenteHome";
 
 function App() {
   return (
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div className="App">
+     <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Inicio</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
         <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Componente Home</a>
-
-          </li>
-          <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Componente Uno</a>
+          <Link class="nav-link active" aria-current="page"  to="/home">Componente Home</Link>
  
                    </li>
           <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Componente Dos</a>
+          <Link class="nav-link active" aria-current="page"  to="/compouno">Componente Uno</Link>
+ 
+                   </li>
+          <li class="nav-item">
+          <Link class="nav-link active" aria-current="page"  to="/compodos">Componente Dos</Link>
 
           </li>
         </ul>
       </div>
     </div>
-  </nav>
+     </nav>
+      <Routes>
+        <Route path="/compouno" element={<ComponenteUno/>}></Route>
+        <Route path="/compodos" element={<ComponenteDos/>}></Route>
+        <Route path="*" element={<ComponenteHome/>}></Route>
+      </Routes>
+    </div>
+  
 )
 }
 
