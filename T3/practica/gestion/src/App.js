@@ -1,36 +1,39 @@
 import './App.css';
-import {Routes,Route} from 'react-router-dom';
+import {Routes,Route,Link} from 'react-router-dom';
 import Agregar from './components/Agregar';
+import Listado from './components/Listado';
+import Buscador from './components/Buscador';
 
 function App() {
   
   return (
-    <div className='App'>
+    <div className="mb-3">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Agregar</a>
+            <Link class="nav-link" to="/home">Inicio</Link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Buscador</a>
+            <Link class="nav-link" to="/agregar">Agregar</Link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Listado</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+            <Link class="nav-link" to="/buscar">Buscador</Link>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+
   <Routes>
     <Route path='/agregar' element={<Agregar/>}></Route>
-    <Route></Route>
+    <Route path='*' element={<Listado/>}></Route>
+    <Route path='/buscar' element={<Buscador/>}></Route>
   </Routes>
   </div>
+
+  
    
   );
 }
