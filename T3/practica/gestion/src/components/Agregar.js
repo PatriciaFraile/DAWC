@@ -16,11 +16,11 @@ return(
     </div>
     <div className="mb-3">
         <label for="correo" class="form-label">Correo Responsable</label>
-        <input type="correoResponsable" class="form-control" id="correoResponsable"></input>
+        <input type="email" class="form-control" id="correoResponsable"></input>
     </div>
     <div className="mb-3">
         <label for="presupuesto" class="form-label">Presupuesto</label>
-        <input type="presupuesto" class="form-control" id="presupuesto"></input>
+        <input type="number" class="form-control" id="presupuesto"></input>
     </div>
     <div className="mb-3">
         <label for="tecnologias" class="form-label">Tecnologias</label>
@@ -37,9 +37,20 @@ return(
         <label for="componentes" class="form-label">Componentes</label>
         <input type="nombreComponente" class="form-control" id="nombreComponente"></input>
     </div>
+    <button type="button" class="btn btn-primary" style={{margin:10}}>Agregar Componente</button>
+    <button type="button" class="btn btn-primary"style={{margin:10}}>Validar equipo</button>
+    <button type="button" class="btn btn-primary">Quitar componentes</button>
+    <div>
+        <p>Lista</p>
+    </div>
+    <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"></input>
+    <label class="form-check-label" for="flexCheckChecked">
+        Proyecto core
+    </label>
+    </div>
+    <button type="button" class="btn btn-primary mt-3">Agregar Proyecto</button>
 
-   
-  
     </div>
     </div>
 
