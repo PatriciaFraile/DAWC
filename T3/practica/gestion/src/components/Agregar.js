@@ -1,6 +1,7 @@
 import React from "react";
 
 const Agregar=()=>{
+
     
 return(
     <div className="container">
@@ -41,7 +42,10 @@ return(
     <button type="button" class="btn btn-primary"style={{margin:10}}>Validar equipo</button>
     <button type="button" class="btn btn-primary">Quitar componentes</button>
     <div>
-        <p>Lista</p>
+        <ul>
+            <li></li>
+            <li></li>
+        </ul>
     </div>
     <div class="form-check">
     <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"></input>
