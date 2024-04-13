@@ -1,6 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
+import Swal from "sweetalert2";
 
 const Agregar=()=>{
+    
+    const [itemComp, setItemCom] = useState([])
+    const[compValue,setCompValue] = useState('')
+
+
+    function agregarComponente(){
+        if (compValue.trim() !== '') {
+            setItemCom([...itemComp, compValue]);
+            setCompValue('');
+          }
+
+    }
 
     
 return(
@@ -9,19 +22,19 @@ return(
     <center><h1>Agregar Proyecto</h1></center>
     <div className="mb-3">
         <label for="nombre" class="form-label">Nombre Proyecto</label>
-        <input type="nombreProyecto" class="form-control" id="nombreProyectos"></input>
+        <input type="nombreProyecto" class="form-control" id="nombreProyectos"/>
     </div>
     <div className="mb-3">
         <label for="nombre" class="form-label">Nombre Responsable</label>
-        <input type="nombreResponsable" class="form-control" id="nombreResponsable"></input>
+        <input type="nombreResponsable" class="form-control" id="nombreResponsable"/>
     </div>
     <div className="mb-3">
         <label for="correo" class="form-label">Correo Responsable</label>
-        <input type="email" class="form-control" id="correoResponsable"></input>
+        <input type="email" class="form-control" id="correoResponsable"/>
     </div>
     <div className="mb-3">
         <label for="presupuesto" class="form-label">Presupuesto</label>
-        <input type="number" class="form-control" id="presupuesto"></input>
+        <input type="number" class="form-control" id="presupuesto"/>
     </div>
     <div className="mb-3">
         <label for="tecnologias" class="form-label">Tecnologias</label>
@@ -36,15 +49,21 @@ return(
     </div>
     <div className="mb-3">
         <label for="componentes" class="form-label">Componentes</label>
-        <input type="nombreComponente" class="form-control" id="nombreComponente"></input>
+        <input type="nombreComponente" class="form-control" id="nombreComponente"
+       value={compValue} 
+       onChange={(e)=>setCompValue(e.target.value)}
+        />
+
+        
     </div>
-    <button type="button" class="btn btn-primary" style={{margin:10}}>Agregar Componente</button>
+    <button type="button" class="btn btn-primary" style={{margin:10}} onClick={agregarComponente}> Agregar Componente</button>
     <button type="button" class="btn btn-primary"style={{margin:10}}>Validar equipo</button>
     <button type="button" class="btn btn-primary">Quitar componentes</button>
     <div>
         <ul>
-            <li></li>
-            <li></li>
+            {itemComp.map((item,index)=>(
+                <li key={index}>{item}</li>
+            ))}
         </ul>
     </div>
     <div class="form-check">
