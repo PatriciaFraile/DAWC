@@ -15,6 +15,10 @@ const Agregar=()=>{
 
     }
 
+    function borrarComponente(){
+            setItemCom([]);
+    }
+
     
 return(
     <div className="container">
@@ -58,7 +62,7 @@ return(
     </div>
     <button type="button" class="btn btn-primary" style={{margin:10}} onClick={agregarComponente}> Agregar Componente</button>
     <button type="button" class="btn btn-primary"style={{margin:10}}>Validar equipo</button>
-    <button type="button" class="btn btn-primary">Quitar componentes</button>
+    <button type="button" class="btn btn-primary" onClick={borrarComponente}>Quitar componentes</button>
     <div>
         <ul>
             {itemComp.map((item,index)=>(
@@ -73,13 +77,8 @@ return(
     </label>
     </div>
     <button type="button" class="btn btn-primary mt-3">Agregar Proyecto</button>
-
     </div>
     </div>
-
- 
-    
-
 );
 }
 export default Agregar;
