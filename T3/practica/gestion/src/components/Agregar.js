@@ -1,12 +1,21 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
+import Buscador from "./Buscador"
 
 const Agregar=()=>{
     
     const [itemComp, setItemCom] = useState([])
+    const [itemProy, setItemProy] = useState({})
+    const[proy,setProy]= useState([])
     const[compValue,setCompValue] = useState('')
+    const [accesorios, setAccesorios] = useState([]);
+    const [accesorio, setAccesorio] = useState("");
 
-
+    let eventHandle = (e) => {
+        setItemProy((e1) => {
+          return { ...e1, [e.target.id]: e.target.value };
+        });
+      };
     function agregarComponente(){
         if (compValue.trim() !== '') {
             setItemCom([...itemComp, compValue]);
@@ -19,30 +28,70 @@ const Agregar=()=>{
             setItemCom([]);
     }
 
+    function agregarProyecto() {
+        let proyectoBuscado = proy.find((item) => {
+          return item.nombreProyectos == itemProy.nombreProyectos;
+        });
+    
+        if (proyectoBuscado == null) {
+          setItemProy((e) => {
+            return { ...e, itemComp: itemComp,accesorios: accesorios };
+          });
+          setProy((e) => {
+            return [...e, itemProy];
+          });
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Proyecto agregado corretamente",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        } else {
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Proyecto duplicado",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      }
+
     
 return(
-    <div className="container">
-    <div classNmae="p-4 mr-20">
-    <center><h1>Agregar Proyecto</h1></center>
+<div className="row  p-5 mt-3">
+<center><h1>Agregar Proyecto</h1></center>
+    <div className="col">
     <div className="mb-3">
         <label for="nombre" class="form-label">Nombre Proyecto</label>
-        <input type="nombreProyecto" class="form-control" id="nombreProyectos"/>
+        <input type="nombreProyecto" class="form-control" id="nombreProyectos"onKeyUp={(e) => {
+            eventHandle(e);
+          }}/>
     </div>
     <div className="mb-3">
         <label for="nombre" class="form-label">Nombre Responsable</label>
-        <input type="nombreResponsable" class="form-control" id="nombreResponsable"/>
+        <input type="nombreResponsable" class="form-control" id="nombreResponsable"onKeyUp={(e) => {
+            eventHandle(e);
+          }}/>
     </div>
     <div className="mb-3">
         <label for="correo" class="form-label">Correo Responsable</label>
-        <input type="email" class="form-control" id="correoResponsable"/>
+        <input type="email" class="form-control" id="correoResponsable"onKeyUp={(e) => {
+            eventHandle(e);
+          }}/>
     </div>
     <div className="mb-3">
         <label for="presupuesto" class="form-label">Presupuesto</label>
-        <input type="number" class="form-control" id="presupuesto"/>
+        <input type="number" class="form-control" id="presupuesto"onKeyUp={(e) => {
+            eventHandle(e);
+          }}/>
     </div>
     <div className="mb-3">
         <label for="tecnologias" class="form-label">Tecnologias</label>
-        <select class="form-select" aria-label="Default select example">
+        <select class="form-select" aria-label="Default select example" onChange={(e) => {
+            setAccesorio(e.target.value);
+          }}>
             <option selected></option>
             <option value="react">React</option>
             <option value="vue">Vue</option>
@@ -76,7 +125,13 @@ return(
         Proyecto core
     </label>
     </div>
-    <button type="button" class="btn btn-primary mt-3">Agregar Proyecto</button>
+    <button type="button" class="btn btn-primary mt-3"onClick={(e) => {
+            agregarProyecto();
+          }}>Agregar Proyecto</button>
+
+    </div>
+    <div className="col">
+        <Buscador/>    
     </div>
     </div>
 );
