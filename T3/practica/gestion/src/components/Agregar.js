@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Swal from "sweetalert2";
 import Buscador from "./Buscador"
 
-const Agregar=()=>{
+const Agregar=({listado,modificacion})=>{
     
     const [itemComp, setItemCom] = useState([])
     const [itemProy, setItemProy] = useState({})
@@ -29,7 +29,7 @@ const Agregar=()=>{
     }
 
     function agregarProyecto() {
-        let proyectoBuscado = proy.find((item) => {
+        let proyectoBuscado = listado.find((item) => {
           return item.nombreProyectos == itemProy.nombreProyectos;
         });
     
@@ -37,7 +37,7 @@ const Agregar=()=>{
           setItemProy((e) => {
             return { ...e, itemComp: itemComp,accesorios: accesorios };
           });
-          setProy((e) => {
+          modificacion((e) => {
             return [...e, itemProy];
           });
           Swal.fire({
@@ -56,6 +56,7 @@ const Agregar=()=>{
             timer: 1500,
           });
         }
+        console.log(listado);
       }
 
     

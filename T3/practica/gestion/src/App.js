@@ -1,10 +1,18 @@
 import './App.css';
+import React, { useState } from "react";
 import {Routes,Route,Link} from 'react-router-dom';
 import Agregar from './components/Agregar';
-import Listado from './components/Listado';
 import Buscador from './components/Buscador';
+import Listar from './components/Listar';
 
 function App() {
+
+  const [itemComp, setItemCom] = useState([])
+    const [itemProy, setItemProy] = useState({})
+    const[proy,setProy]= useState([])
+    const[compValue,setCompValue] = useState('')
+    const [accesorios, setAccesorios] = useState([]);
+    const [accesorio, setAccesorio] = useState("");
   
   return (
     <div className="mb-3">
@@ -27,8 +35,8 @@ function App() {
   </nav>
 
   <Routes>
-    <Route path='/agregar' element={<Agregar/>}></Route>
-    <Route path='*' element={<Listado/>}></Route>
+    <Route path='/agregar' element={<Agregar listado ={proy} modificacion={setProy}/>}></Route>
+    <Route path='*' element={<Listar listado ={proy}/>  }></Route>
     <Route path='/buscar' element={<Buscador/>}></Route>
   </Routes>
   </div>

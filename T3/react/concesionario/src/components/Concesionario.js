@@ -15,42 +15,7 @@ const Concesionario = ()=>{
     const [accesorios, setAccesorios] = useState([]);
     const [accesorio, setAccesorio] = useState("");
   
-    let eventHandle = (e) => {
-      setCoche((e1) => {
-        return { ...e1, [e.target.id]: e.target.value };
-      });
-    };
-  
-    function agregarCoche() {
-      /* cuando no se puede agregar? -> cuando hay uno con la misma matricula */
-      let cocheBuscado = coches.find((item) => {
-        return item.matricula == coche.matricula;
-      });
-  
-      if (cocheBuscado == null) {
-        setCoche((e) => {
-          return { ...e, accesorios: accesorios };
-        });
-        setCoches((e) => {
-          return [...e, coche];
-        });
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Coche agregado corretamente",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      } else {
-        Swal.fire({
-          position: "center",
-          icon: "error",
-          title: "Coche con matricula duplicada",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      }
-    }
+    
   
     return(
         <div className="container">
@@ -69,5 +34,6 @@ const Concesionario = ()=>{
             </div>
         </div>
     );
-}
+  }
+
 export default Concesionario;
