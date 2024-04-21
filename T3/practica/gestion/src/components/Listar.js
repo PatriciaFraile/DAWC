@@ -14,9 +14,6 @@ const Listar=({listado})=>{
                   <h6 className="card-title">{item.nombreResponsable}</h6>
                   <p className="card-title">{item.correoResponsable}</p>
                   <p className="card-title">{item.presupuesto}</p>
-                  
-
-
                   <a href="#" className="btn btn-primary">
                     Ver detalles
                   </a>

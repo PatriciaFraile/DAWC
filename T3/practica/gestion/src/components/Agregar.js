@@ -63,6 +63,7 @@ const Agregar=({listado,modificacion})=>{
 return(
 <div className="row  p-5 mt-3">
 <center><h1>Agregar Proyecto</h1></center>
+<h2>El numero de proyectos es de :<span>0</span></h2>
     <div className="col">
     <div className="mb-3">
         <label for="nombre" class="form-label">Nombre Proyecto</label>

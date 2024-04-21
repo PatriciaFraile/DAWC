@@ -6,13 +6,7 @@ import Buscador from './components/Buscador';
 import Listar from './components/Listar';
 
 function App() {
-
-  const [itemComp, setItemCom] = useState([])
-    const [itemProy, setItemProy] = useState({})
-    const[proy,setProy]= useState([])
-    const[compValue,setCompValue] = useState('')
-    const [accesorios, setAccesorios] = useState([]);
-    const [accesorio, setAccesorio] = useState("");
+  const[proy,setProy]= useState([])
   
   return (
     <div className="mb-3">
@@ -37,7 +31,7 @@ function App() {
   <Routes>
     <Route path='/agregar' element={<Agregar listado ={proy} modificacion={setProy}/>}></Route>
     <Route path='*' element={<Listar listado ={proy}/>  }></Route>
-    <Route path='/buscar' element={<Buscador/>}></Route>
+    <Route path='/buscar' element={<Buscador listado = {proy}/>}></Route>
   </Routes>
   </div>
 
