@@ -4,21 +4,28 @@ const Listar=({listado})=>{
 
   return (
     <div>
-      <div className="row">
+      <div className="container">
         {listado.map((item, index) => {
           return (
-            <div className="col" id={index}>
-              <div className="card">
-                <div className="card-body">
-                  <h5 className="card-title">{item.nombreProyectos}</h5>
-                  <h6 className="card-title">{item.nombreResponsable}</h6>
-                  <p className="card-title">{item.correoResponsable}</p>
-                  <p className="card-title">{item.presupuesto}</p>
-                  <a href="#" className="btn btn-primary">
-                    Ver detalles
-                  </a>
-                </div>
-              </div>
+            <div id={index}>
+              <table>
+              <thead className="column">
+                <tr>
+                  <th>Id</th>
+                  <th>Nombre</th>
+                  <th>Responsable</th>
+                </tr>
+              </thead>
+              <tbody className="column">
+                <tr>
+                  <td>{index+1}</td>
+                  <td>{item.nombreProyectos}</td>
+                  <td>{item.nombreResponsable}</td>
+                </tr>
+              </tbody>
+
+              </table>
+              
             </div>
           );
         })}

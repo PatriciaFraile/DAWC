@@ -10,6 +10,7 @@ const Agregar=({listado,modificacion})=>{
     const[compValue,setCompValue] = useState('')
     const [accesorios, setAccesorios] = useState([]);
     const [accesorio, setAccesorio] = useState("");
+    const [contador,setContador] = useState(0)
 
     let eventHandle = (e) => {
         setItemProy((e1) => {
@@ -34,6 +35,7 @@ const Agregar=({listado,modificacion})=>{
         });
     
         if (proyectoBuscado == null) {
+          setContador(contador+1)
           setItemProy((e) => {
             return { ...e, itemComp: itemComp,accesorios: accesorios };
           });
@@ -63,7 +65,7 @@ const Agregar=({listado,modificacion})=>{
 return(
 <div className="row  p-5 mt-3">
 <center><h1>Agregar Proyecto</h1></center>
-<h2>El numero de proyectos es de :<span>0</span></h2>
+<h2>El numero de proyectos es de : {contador}</h2>
     <div className="col">
     <div className="mb-3">
         <label for="nombre" class="form-label">Nombre Proyecto</label>
