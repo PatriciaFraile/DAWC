@@ -134,9 +134,6 @@ return(
           }}>Agregar Proyecto</button>
 
     </div>
-    <div className="col">
-        <Buscador/>    
-    </div>
     </div>
 );
 }

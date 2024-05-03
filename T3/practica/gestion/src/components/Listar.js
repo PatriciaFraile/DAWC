@@ -3,34 +3,31 @@ import React from "react";
 const Listar=({listado})=>{
 
   return (
-    <div>
-      <div className="container">
-        {listado.map((item, index) => {
-          return (
-            <div id={index}>
-              <table>
-              <thead className="column">
-                <tr>
-                  <th>Id</th>
-                  <th>Nombre</th>
-                  <th>Responsable</th>
-                </tr>
-              </thead>
-              <tbody className="column">
-                <tr>
-                  <td>{index+1}</td>
-                  <td>{item.nombreProyectos}</td>
-                  <td>{item.nombreResponsable}</td>
-                </tr>
-              </tbody>
-
-              </table>
-              
-            </div>
-          );
-        })}
-      </div>
-    </div>
+    <center>
+<table className="mt-5"> 
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Proyecto</th>
+          <th>Responsable</th>
+        </tr>
+      </thead>
+      <tbody>
+      {listado.map((item, index) => {
+        return(
+                <tr key={index}>
+                 <td>{index+1}</td>
+                 <td>{item.nombreProyectos}</td>
+                 <td>{item.nombreResponsable}</td>
+               </tr>
+        )
+        
+               
+       })}
+      </tbody>
+    </table>
+    </center>
+    
   );
 }
 
