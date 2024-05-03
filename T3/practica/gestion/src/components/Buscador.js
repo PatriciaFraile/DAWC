@@ -29,9 +29,7 @@ const Buscador = ({listado})=>{
                 <div className="card-body">
                   <h5 className="card-title">{item.nombreProyectos}</h5>
                   <p className="card-text">{item.nombreResponsable}</p>
-                 
-  
-
+                  <p className="card-text">{item.presupuesto}</p>
                 </div>
               </div>
             </div>
